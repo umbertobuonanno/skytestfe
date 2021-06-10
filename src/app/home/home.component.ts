@@ -18,7 +18,8 @@ export class HomeComponent implements OnInit {
 
   getImage() {
     this.imagesService.getImages( this.value).subscribe((data: any) => {
-      this.images = data;
+      debugger;
+      this.images = data.data.children;
     })
   }
 

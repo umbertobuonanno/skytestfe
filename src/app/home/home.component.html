@@ -7,6 +7,10 @@
     </button>
 </mat-form-field>
 
-<mat-grid-list cols="4" rowHeight="100px">
-  <mat-grid-tile *ngFor="let image of images" [colspan]="image.cols" [rowspan]="image.rows" [style.background]="image.color">{{image.text}}</mat-grid-tile>
+<mat-grid-list *ngIf="images?.length > 0" cols="4" rowHeight="100px">
+  <mat-grid-tile *ngFor="let image of images" [colspan]="2" [style.background]="image.data.url">{{image.title}}</mat-grid-tile>
 </mat-grid-list>
+
+<div *ngIf="images?.length === 0">
+  <h1 class="noresults">No results for this keyword</h1>
+</div>
