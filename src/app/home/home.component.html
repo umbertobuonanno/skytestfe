@@ -1,4 +1,4 @@
-<h1 class="title">Images for your favorite topic</h1>
+<h1 class="title">Find images for your favorite topic</h1>
 <mat-form-field class="example-form-field">
     <mat-label>Favorite topic...</mat-label>
     <input matInput type="text" [(ngModel)]="value">
@@ -8,7 +8,7 @@
 </mat-form-field>
 
 <mat-grid-list *ngIf="images?.length > 0" cols="4" rowHeight="100px">
-  <mat-grid-tile *ngFor="let image of images" [colspan]="2" [style.background]="image.data.url">{{image.title}}</mat-grid-tile>
+  <mat-grid-tile *ngFor="let image of images" [colspan]="2" [style.background]="'green'" (click)="openImages(image.data.url)"><img src="{{image.data.url}}">{{image.data.title}}</mat-grid-tile>
 </mat-grid-list>
 
 <div *ngIf="images?.length === 0">

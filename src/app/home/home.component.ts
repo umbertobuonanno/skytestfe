@@ -11,6 +11,7 @@ export class HomeComponent implements OnInit {
 
   value: string = '';
   images: any = [];
+  urlImages: string = '';
 
   constructor(private imagesService: ImagesService) {}
 
@@ -18,9 +19,12 @@ export class HomeComponent implements OnInit {
 
   getImage() {
     this.imagesService.getImages( this.value).subscribe((data: any) => {
-      debugger;
       this.images = data.data.children;
     })
+  }
+
+  openImages(url: string){
+    this.urlImages = url;
   }
 
 }
