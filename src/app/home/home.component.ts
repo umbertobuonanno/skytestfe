@@ -34,9 +34,6 @@ export class HomeComponent implements OnInit {
     const dialogRef = this.dialog.open(ImageDialogComponent);
 
     dialogRef.componentInstance.image = this.image;
-    dialogRef.afterClosed().subscribe(result => {
-      console.log(`Dialog result: ${result}`);
-    });
   }
 
 }
