@@ -12,11 +12,14 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { FormsModule } from '@angular/forms';
 import { HomeComponent } from './home/home.component';
+import { ImageDialogComponent } from './image-dialog/image-dialog.component';
+import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent
+    HomeComponent,
+    ImageDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -27,7 +30,8 @@ import { HomeComponent } from './home/home.component';
     MatInputModule,
     MatIconModule,
     MatGridListModule,
-    FormsModule
+    FormsModule,
+    MatDialogModule
   ],
   providers: [
     HttpClient

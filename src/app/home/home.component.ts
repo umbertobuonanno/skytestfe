@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 
 import { ImagesService } from 'src/app/services/images.service';
+import { MatDialog } from '@angular/material/dialog';
+
+import { ImageDialogComponent } from 'src/app/image-dialog/image-dialog.component';
 
 @Component({
   selector: 'app-home',
@@ -11,9 +14,9 @@ export class HomeComponent implements OnInit {
 
   value: string = '';
   images: any = [];
-  urlImages: string = '';
+  image: any;
 
-  constructor(private imagesService: ImagesService) {}
+  constructor(private imagesService: ImagesService, public dialog: MatDialog) {}
 
   ngOnInit(): void {}
 
@@ -23,8 +26,14 @@ export class HomeComponent implements OnInit {
     })
   }
 
-  openImages(url: string){
-    this.urlImages = url;
+  openImages(image: any){
+    this.image = image;
+    const dialogRef = this.dialog.open(ImageDialogComponent);
+
+    dialogRef.componentInstance.image = this.image;
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+    });
   }
 
 }
